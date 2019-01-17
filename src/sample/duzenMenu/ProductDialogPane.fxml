@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane fx:id="dpProductDialogPane" cache="true" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.duzenMenu.ProductDialogPaneController">
+   <content>
+      <VBox spacing="5.0">
+         <children>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" spacing="10">
+               <children>
+                  <JFXTextField fx:id="tfSearchProduct" alignment="TOP_CENTER" focusColor="#0964cd" labelFloat="true" nodeOrientation="LEFT_TO_RIGHT" promptText="Search..." unFocusColor="#021aa8">
+                     <font>
+                        <Font name="Verdana" size="15.0" />
+                     </font></JFXTextField>
+               </children>
+            </HBox>
+            <TableView fx:id="tableProduct" editable="true" onMouseClicked="#itemSelected" prefHeight="511.0" prefWidth="1174.0">
+              <columns>
+                  <TableColumn prefWidth="187.0" text="Barcode">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="barcode" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="187.0" text="Label">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="label" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="192.0" text="Name">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="nameProduct" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn minWidth="1.0" prefWidth="231.0" text="Stock">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="stock" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="87.0" text="Selling Price">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="sellingPrice" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="229.0" text="Buying Price">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="buyingPrice" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="98.0" text="VAT">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="vat" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="98.0" text="Sub Products" visible="false">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="mainProduct" />
+                     </cellValueFactory>
+                  </TableColumn>
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <contextMenu>
+                  <ContextMenu fx:id="tableViewContextMenuProduct">
+                    <items>
+                        <MenuItem fx:id="contextEditProduct" mnemonicParsing="false" onAction="#editProductButton" text="Edit" />
+                      <MenuItem fx:id="contextDeleteProduct" mnemonicParsing="false" onAction="#deleteProduct" text="Delete" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+            <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <children>
+                  <JFXButton fx:id="buttonCreateProduct" onAction="#callCreateNewProduct" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Create" HBox.hgrow="NEVER" />
+                  <JFXButton fx:id="buttonEditProduct" disable="true" onAction="#editProductButton" prefWidth="51.0" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Edit" HBox.hgrow="NEVER" />
+                  <JFXButton fx:id="buttonDeleteProduct" disable="true" onAction="#deleteProduct" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Delete" HBox.hgrow="NEVER" />
+                  <Pane prefHeight="31.0" prefWidth="295.0" HBox.hgrow="NEVER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <JFXButton fx:id="buttonAddSubProduct" disable="true" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" onAction="#addSubProduct" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: green;" text="+" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="buttonUpdateSubProductQuantity" alignment="CENTER" layoutX="463.0" layoutY="10.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" onAction="#updateSubProduct" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: blue;" text="?" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="buttonDeleteSubProduct" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" onAction="#dropSubProduct" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: red 10%;" text="-" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <Pane layoutX="217.0" layoutY="10.0" prefHeight="31.0" prefWidth="340.0" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <JFXButton fx:id="buttonCancel" disable="true" onAction="#cancelButton" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Cancel" visible="false" HBox.hgrow="NEVER" />
+                  <JFXButton fx:id="buttonUpdateProduct" disable="true" onAction="#updateButton" ripplerFill="#b51717" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Update" visible="false" HBox.hgrow="NEVER" />
+               </children>
+            </HBox>
+            <VBox>
+               <children>
+                  <VBox>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <JFXTextField fx:id="tfBarcode" alignment="TOP_CENTER" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Barcode" />
+                              <JFXTextField fx:id="tfLabel" alignment="TOP_CENTER" labelFloat="true" promptText="Label" />
+                              <JFXTextField fx:id="tfNameProduct" alignment="CENTER" labelFloat="true" prefHeight="31.0" prefWidth="143.0" promptText="Product Name" />
+                              <JFXTextField fx:id="tfStock" alignment="CENTER" labelFloat="true" prefHeight="29.0" prefWidth="168.0" promptText="Stock" />
+                              <JFXTextField fx:id="tfSellingPrice" alignment="CENTER" labelFloat="true" prefHeight="29.0" prefWidth="158.0" promptText="Selling Price" />
+                              <JFXTextField fx:id="tfBuyingPrice" alignment="CENTER" labelFloat="true" prefHeight="31.0" prefWidth="145.0" promptText="Buying Price" />
+                              <JFXTextField fx:id="tfVAT" alignment="CENTER" labelFloat="true" prefHeight="31.0" prefWidth="145.0" promptText="VAT" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="30.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="labelSubProducList" disable="true" text="Sub Product List">
+                                 <font>
+                                    <Font name="Verdana Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tableSubProduct" disable="true" prefHeight="296.0" prefWidth="1174.0">
+                          <columns>
+                              <TableColumn prefWidth="75.0" text="Barcode">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="barcode" />
+                                 </cellValueFactory>
+                              </TableColumn>
+
+                                  <TableColumn prefWidth="75.0" text="Label">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="label" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                  <TableColumn prefWidth="75.0" text="Name">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="nameProduct" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                  <TableColumn prefWidth="75.0" text="Price">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="sellingPrice" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                              <TableColumn fx:id="subProductQuantity" prefWidth="75.0" text="Quantity">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="quantity" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                                 </columns>
+                              <columnResizePolicy>
+                                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                              </columnResizePolicy>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</DialogPane>

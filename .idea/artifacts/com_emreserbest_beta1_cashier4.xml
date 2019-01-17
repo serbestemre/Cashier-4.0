@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="com.emreserbest.beta1_cashier4">
+    <output-path>$PROJECT_DIR$/out/artifacts/com_emreserbest_beta1_cashier4</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="linuxIcon" value="$PROJECT_DIR$/src/sample/images/icon.png" />
+            <option name="windowsIcon" value="$PROJECT_DIR$/src/sample/images/icon.ico" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="Cashier 4.0" />
+        <option name="vendor" value="emreSerbest" />
+        <option name="version" value="beta1" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="com_emreserbest_beta1_cashier4.jar">
+        <element id="module-output" name="com.emreserbest.beta1_cashier4" />
+      </element>
+    </root>
+  </artifact>
+</component>

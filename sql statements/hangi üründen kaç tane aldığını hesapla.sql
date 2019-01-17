@@ -1,0 +1,1 @@
+Select sale.customerID, productID,SUM(Quantity)as Amount, sum(subTotal) as Price from detail_of_sale inner join sale on sale.saleID=detail_of_sale.saleID and sale.customerID=20  group by productID order by price DESC;

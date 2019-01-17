@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane fx:id="dpCreateProduct" prefHeight="497.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.duzenMenu.CreateNewProductController">
+   <content>
+      <VBox spacing="45.0">
+         <children>
+            <JFXTextField fx:id="tfBarcode" focusColor="#037de8" labelFloat="true" layoutX="20.0" layoutY="35.0" promptText="Barcode" unFocusColor="#0546a8">
+               <font>
+                  <Font name="Verdana" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="tfLabel" focusColor="#037de8" labelFloat="true" promptText="Label" unFocusColor="#0546a8">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="Verdana" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="tfNameProduct" focusColor="#037de8" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Product Name" unFocusColor="#0546a8" />
+            <JFXTextField fx:id="tfStock" focusColor="#037de8" labelFloat="true" layoutX="10.0" layoutY="39.0" promptText="Stock" unFocusColor="#0546a8" />
+            <JFXTextField fx:id="tfSellingPrice" focusColor="#037de8" labelFloat="true" layoutX="10.0" layoutY="68.0" promptText="Selling Price" unFocusColor="#0546a8">
+               <font>
+                  <Font name="Verdana" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="tfBuyingPrice" focusColor="#037de8" labelFloat="true" layoutX="10.0" layoutY="97.0" promptText="Buying Price" unFocusColor="#0546a8">
+               <font>
+                  <Font name="Verdana" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="tfVAT" focusColor="#037de8" labelFloat="true" layoutX="10.0" layoutY="126.0" promptText="VAT" unFocusColor="#0546a8">
+               <font>
+                  <Font name="Verdana" size="15.0" />
+               </font>
+            </JFXTextField>
+            <HBox layoutX="10.0" layoutY="244.0" nodeOrientation="RIGHT_TO_LEFT">
+               <children>
+                  <JFXButton fx:id="buttonClear" onAction="#clearButton" text="Clear" />
+                  <JFXButton fx:id="ButtonSave" onAction="#callCreateNewProduct" text="Save" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
+         </padding>
+      </VBox>
+   </content>
+   <header>
+      <Label alignment="CENTER" contentDisplay="CENTER" text="CREATE A NEW PRODUCT" textAlignment="CENTER" textFill="#0546a8">
+         <font>
+            <Font name="Verdana Bold" size="15.0" />
+         </font>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </Label>
+   </header>
+</DialogPane>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bpAnaPencere" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <VBox fx:id="vbox" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showOptionsDialogPane" text="Options" visible="false" />
+                    <MenuItem mnemonicParsing="false" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem fx:id="urunEkleSil" mnemonicParsing="false" onAction="#showProductDialogPane" text="Products" />
+                        <MenuItem fx:id="urunEkleSil1" mnemonicParsing="false" onAction="#showCreateProductDialogPane" text="Create a Product" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#showCustomerDialogPane" text="Customers" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Analysis" visible="false">
+                  <items>
+                    <MenuItem fx:id="dailyAnalysis" mnemonicParsing="false" onAction="#showDailyAnalysis" text="Daily Analysis" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Weekly Analysis" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Monthly Analysis" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <JFXToolbar fx:id="toolBar">
+               <left>
+                  <HBox fx:id="hBoxToolBarLeft" spacing="10.0" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </left>
+               <right>
+                  <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" spacing="180.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXTextField fx:id="tfSearchProduct" alignment="BASELINE_CENTER" focusColor="#26a4da" nodeOrientation="LEFT_TO_RIGHT" prefWidth="162.0" promptText="Search Product" unFocusColor="#2256bf">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <VBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                           <children>
+                              <Label fx:id="labelDate" alignment="CENTER" contentDisplay="CENTER" text="00/00/0000" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelTime" alignment="CENTER" contentDisplay="CENTER" text="00:00" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Verdana Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </HBox>
+               </right>
+            </JFXToolbar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="749.0" prefWidth="595.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox>
+               <children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="28.0" prefWidth="820.0" />
+                  <TableView fx:id="tableProductInfo" prefWidth="835.0">
+                    <columns>
+                        <TableColumn prefWidth="119.0" text="Barcode">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="barcode" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="119.0" text="Label">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="label" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="105.0" text="Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nameProduct" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="78.0" text="Price">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="sellingPrice" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="78.0" text="Stock">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="stock" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="78.0" text="VAT">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="vat" />
+                           </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#addtoShoppingBasket" text="Add to Shopping List" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+                  <HBox fx:id="hBoxShoppingButtons" alignment="CENTER" spacing="15.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TableView fx:id="tableShoppingBasket" editable="true">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Barcode">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="barcode" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="Label">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="label" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nameProduct" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="Price">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="sellingPrice" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="quantity" prefWidth="75.0" text="Quantity">
+            
+                           <cellValueFactory>
+                              <PropertyValueFactory property="quantity" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="quantity1" prefWidth="75.0" text="VAT">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="vat" />
+                           </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#updateOnShoppinBasket" text="Change Quantity" />
+                              <MenuItem mnemonicParsing="false" onAction="#contextChangeVat" text="Change VAT" />
+                            <MenuItem mnemonicParsing="false" onAction="#deleteFromShoppingBasket" text="Drop" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <VBox nodeOrientation="RIGHT_TO_LEFT">
+               <VBox.margin>
+                  <Insets right="5.0" top="5.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets right="15.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="160.0" prefWidth="223.0" spacing="20.0" VBox.vgrow="NEVER">
+               <children>
+                  <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+                     <children>
+                        <JFXTextField fx:id="tfCash" focusColor="#2196f3" labelFloat="true" prefHeight="29.0" prefWidth="212.0" promptText="Enter cash..." unFocusColor="#78909c">
+                           <font>
+                              <Font name="Verdana" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin></JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox spacing="10.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Label text="Total VAT">
+                           <font>
+                              <Font name="Verdana Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelTotalVAT" layoutX="10.0" layoutY="10.0" text="00.00">
+                           <font>
+                              <Font name="Verdana" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+                     <children>
+                        <Label text="Total Discount" textFill="#2ea31a">
+                           <font>
+                              <Font name="Verdana Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelTotalDiscount" layoutX="10.0" layoutY="10.0" text="00.00" textFill="#2ea31a">
+                           <font>
+                              <Font name="Verdana" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+                     <children>
+                        <Label text="Change" textFill="#ff0101">
+                           <font>
+                              <Font name="Verdana Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelChange" layoutX="10.0" layoutY="10.0" text="00.00" textFill="RED">
+                           <font>
+                              <Font name="Verdana" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+                     <children>
+                        <Label text="Total Price">
+                           <font>
+                              <Font name="Verdana Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="00.00">
+                           <font>
+                              <Font name="Verdana" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox>
+                     <children>
+                        <ComboBox fx:id="comboBoxCustomer" onAction="#onSelectCustomer" prefHeight="31.0" prefWidth="268.0" promptText="Select a Customer">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="154.0" prefWidth="280.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <JFXToggleButton fx:id="buttonTogglePrintList" prefHeight="31.0" prefWidth="231.0" selected="true" text="Print Order List" wrapText="true">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                  </JFXToggleButton>
+                  <HBox alignment="CENTER" prefHeight="55.0" prefWidth="235.0" spacing="10.0">
+                     <children>
+                        <JFXButton onAction="#paymentButton" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="PAYMENT" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton onAction="#cancelShoppingButton" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="CANCEL" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </right>
+</BorderPane>

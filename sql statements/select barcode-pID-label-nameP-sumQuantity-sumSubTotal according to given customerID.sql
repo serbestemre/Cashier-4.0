@@ -1,0 +1,1 @@
+Select barcode, product.label, product.nameProduct,  detail_of_sale.productID,SUM(quantity)as quantity, sum(subTotal)as subTotal from detail_of_sale inner join sale,product on sale.saleID=detail_of_sale.saleID and product.productID=detail_of_sale.productID and sale.customerID=20   group by detail_of_sale.productID order by subTotal DESC;
