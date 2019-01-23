@@ -152,6 +152,9 @@ public class CustomerDialogPaneController {
                         else if(customerName.toLowerCase().contains(lowerCaseFilter)){
                             return true;
                         }
+                        else if(customer.getTaxID().startsWith(lowerCaseFilter)){
+                            return true;
+                        }
                         return false;
                     });
                 }));

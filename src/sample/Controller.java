@@ -954,7 +954,7 @@ public void calculateTotalPriceofShoppingBasket(){
         totalPrice+=currentProductObject.getSellingPrice()*currentProductObject.getQuantity();
         totalVat+=currentProductObject.getVat()*currentProductObject.getQuantity();
     }
-    labelTotalPrice.setText(String.valueOf(totalPrice));
+    labelTotalPrice.setText(String.valueOf(totalPrice+totalVat));
     labelTotalVAT.setText(String.valueOf(totalVat));
     labelChange.setText(String.valueOf(totalCash-(totalPrice+totalVat)));
 

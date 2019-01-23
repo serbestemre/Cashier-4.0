@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+
+<DialogPane prefHeight="65.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FileNameController">
+   <content>
+      <HBox prefHeight="57.0" prefWidth="313.0" spacing="5.0">
+         <children>
+            <TextField prefHeight="31.0" prefWidth="170.0" promptText="enter a file name" />
+            <ChoiceBox fx:id="combobox" prefWidth="110.0" />
+         </children>
+      </HBox>
+   </content>
+</DialogPane>

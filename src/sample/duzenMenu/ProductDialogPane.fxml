@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="dpProductDialogPane" cache="true" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.duzenMenu.ProductDialogPaneController">
+<DialogPane fx:id="dpProductDialogPane" cache="true" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.duzenMenu.ProductDialogPaneController">
    <content>
       <VBox spacing="5.0">
          <children>
@@ -27,7 +27,7 @@
                      </font></JFXTextField>
                </children>
             </HBox>
-            <TableView fx:id="tableProduct" editable="true" onMouseClicked="#itemSelected" prefHeight="511.0" prefWidth="1174.0">
+            <TableView fx:id="tableProduct" editable="true" onMouseClicked="#itemSelected" prefHeight="430.0" prefWidth="980.0">
               <columns>
                   <TableColumn prefWidth="187.0" text="Barcode">
                      <cellValueFactory>
@@ -84,10 +84,10 @@
             </TableView>
             <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
                <children>
-                  <JFXButton fx:id="buttonCreateProduct" onAction="#callCreateNewProduct" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Create" HBox.hgrow="NEVER" />
-                  <JFXButton fx:id="buttonEditProduct" disable="true" onAction="#editProductButton" prefWidth="51.0" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Edit" HBox.hgrow="NEVER" />
-                  <JFXButton fx:id="buttonDeleteProduct" disable="true" onAction="#deleteProduct" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Delete" HBox.hgrow="NEVER" />
-                  <Pane prefHeight="31.0" prefWidth="295.0" HBox.hgrow="NEVER">
+                  <JFXButton fx:id="buttonCreateProduct" onAction="#callCreateNewProduct" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Create" HBox.hgrow="ALWAYS" />
+                  <JFXButton fx:id="buttonEditProduct" disable="true" onAction="#editProductButton" prefWidth="51.0" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Edit" HBox.hgrow="ALWAYS" />
+                  <JFXButton fx:id="buttonDeleteProduct" disable="true" onAction="#deleteProduct" style="-fx-background-color:         linear-gradient(#f2f2f2, #d6d6d6),         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),         linear-gradient(#dddddd 0%, #f6f6f6 50%);     -fx-background-radius: 8,7,6;     -fx-background-insets: 0,1,2;     -fx-text-fill: black;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Delete" HBox.hgrow="ALWAYS" />
+                  <Pane prefHeight="30.0" prefWidth="101.0" HBox.hgrow="NEVER">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -110,7 +110,7 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <Pane layoutX="217.0" layoutY="10.0" prefHeight="31.0" prefWidth="340.0" HBox.hgrow="NEVER">
+                  <Pane layoutX="217.0" layoutY="10.0" prefHeight="30.0" prefWidth="400.0" HBox.hgrow="NEVER">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>

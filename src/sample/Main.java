@@ -48,7 +48,7 @@ public class Main extends Application {
         Image image = new Image("/sample/images/icon.png");
 
         primaryStage.getIcons().add(image);
-        primaryStage.setScene(new Scene(root, 1100 , 800));
+        primaryStage.setScene(new Scene(root, 1000 , 600));
         primaryStage.show();
 
 

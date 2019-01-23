@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="dpCustomer" expanded="true" prefHeight="810.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.duzenMenu.CustomerDialogPaneController">
+<DialogPane fx:id="dpCustomer" expanded="true" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.duzenMenu.CustomerDialogPaneController">
    <header>
       <Label alignment="BOTTOM_CENTER" text="CUSTOMERS">
          <font>
@@ -39,7 +39,7 @@
                      </font></JFXTextField>
                </children>
             </HBox>
-            <TableView fx:id="tableCustomer" cache="true" cacheHint="QUALITY" editable="true" onMouseClicked="#itemSelected" prefHeight="524.0" prefWidth="976.0">
+            <TableView fx:id="tableCustomer" cache="true" cacheHint="QUALITY" editable="true" onMouseClicked="#itemSelected" prefWidth="976.0">
               <columns>
 
                                                       <TableColumn fx:id="getirilecekBilgiName" prefWidth="82.0" text="Name">
